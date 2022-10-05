@@ -1,0 +1,78 @@
+country,continent,quality_of_life_index,purchaseing_power_index,safety_index,health_care_index,cost_of_living_index
+Argentina,South America,115.31,47.22,38.23,69.25,32.95
+Australia,Oceania,186.21,107.31,58.64,77.38,73.54
+Austria,Europe,182.5,82.38,76.27,78.73,70.38
+Bangladesh,Asia,70.03,33.21,36.06,42.8,32.25
+Belarus,Europe,134.83,37.0,75.01,59.04,34.7
+Belgium,Europe,153.47,86.28,56.02,74.34,71.78
+Brazil,South America,105.65,32.81,31.12,56.29,40.22
+Bulgaria,Europe,129.8,49.37,61.5,55.4,36.7
+Canada,North America,163.47,95.09,60.33,71.58,67.62
+Chile,South America,119.76,42.5,54.77,65.44,43.62
+China,Asia,102.81,60.88,68.17,64.48,40.04
+Colombia,South America,105.83,31.12,45.21,67.24,30.66
+Croatia,Europe,159.01,50.42,75.29,62.68,49.7
+Cyprus,Europe,147.93,57.41,69.99,51.75,57.93
+Czech Republic,Europe,156.24,62.82,74.48,74.62,46.15
+Denmark,Europe,192.67,100.88,74.9,80.0,83.0
+Ecuador,South America,125.14,36.08,49.1,70.59,40.98
+Egypt,Africa,86.54,22.41,53.08,45.84,29.54
+Estonia,Europe,177.82,71.3,76.86,72.67,50.93
+Finland,Europe,190.22,99.93,76.68,75.79,70.29
+France,Europe,153.95,80.36,53.21,79.99,74.14
+Georgia,Asia,115.95,24.88,79.79,51.24,28.48
+Germany,Europe,179.78,102.36,65.19,73.32,65.26
+Greece,Europe,133.07,43.68,59.68,56.21,55.67
+Hong Kong,Asia,99.05,65.32,79.3,66.08,77.22
+Hungary,Europe,128.16,47.55,64.92,47.8,40.85
+Iceland,Europe,181.75,79.44,76.64,65.92,100.48
+India,Asia,108.63,54.3,56.68,67.13,24.58
+Indonesia,Asia,97.47,25.05,54.16,60.48,37.27
+Iran,Asia,74.14,22.69,50.75,51.7,39.01
+Ireland,Europe,153.53,80.88,54.57,51.89,75.91
+Israel,Asia,149.94,78.09,70.4,73.29,81.15
+Italy,Europe,140.76,65.59,55.74,66.59,67.26
+Japan,Asia,167.99,87.28,79.34,81.14,83.35
+Jordan,Asia,112.4,34.88,59.17,64.6,53.67
+Kazakhstan,Asia,88.31,38.36,37.98,50.7,30.64
+Kenya,Africa,70.56,27.32,38.34,55.59,40.21
+Kuwait,Asia,115.75,85.59,65.25,56.21,50.37
+Latvia,Europe,150.0,52.48,63.05,62.91,47.94
+Lebanon,Asia,106.56,44.47,56.64,64.38,60.5
+Lithuania,Europe,159.42,57.85,66.94,69.49,44.28
+Malaysia,Asia,118.44,64.49,41.16,68.1,39.12
+Mexico,North America,118.55,41.81,46.03,70.12,35.72
+Morocco,Africa,105.46,35.25,51.31,45.72,34.32
+Netherlands,Europe,183.67,90.73,72.38,74.65,73.75
+New Zealand,Oceania,181.02,92.66,59.07,73.81,72.53
+Nigeria,Africa,55.65,13.52,36.23,51.59,31.0
+Norway,Europe,175.19,88.38,64.57,74.36,101.43
+Oman,Asia,167.09,80.97,79.21,58.15,49.28
+Pakistan,Asia,105.44,30.57,55.92,60.59,21.98
+Panama,North America,108.36,34.23,52.81,59.93,54.16
+Peru,South America,85.46,33.95,31.85,56.15,38.65
+Philippines,Asia,85.37,23.48,57.84,67.47,37.63
+Poland,Europe,141.83,59.61,71.5,61.01,40.04
+Portugal,Europe,162.91,49.43,70.37,71.88,49.52
+Qatar,Asia,162.29,111.69,88.14,73.3,64.04
+Romania,Europe,132.44,48.86,72.36,55.06,35.31
+Russia,Europe,102.31,38.94,58.88,57.59,39.21
+Saudi Arabia,Asia,150.56,100.0,73.82,59.11,48.34
+Singapore,Asia,144.39,88.96,69.43,70.84,81.1
+Slovakia,Europe,152.53,56.94,70.78,60.02,44.46
+Slovenia,Europe,172.15,66.31,78.93,64.58,53.43
+South Africa,Africa,131.97,73.61,22.51,64.14,42.87
+South Korea,Asia,139.02,85.21,71.98,81.97,78.18
+Spain,Europe,169.82,72.03,68.04,78.88,53.77
+Sri Lanka,Asia,85.16,24.45,59.78,72.53,31.61
+Sweden,Europe,175.95,101.73,52.93,69.23,69.85
+Switzerland,Europe,192.01,119.53,78.4,72.44,122.4
+Taiwan,Asia,143.23,65.67,84.35,86.71,61.37
+Thailand,Asia,101.88,35.45,59.52,77.95,49.77
+Turkey,Asia,127.1,40.85,60.51,69.8,34.69
+Ukraine,Europe,104.77,31.8,51.15,52.33,33.18
+United Arab Emirates,Asia,156.67,91.58,84.3,67.04,61.98
+United Kingdom,Europe,162.71,91.73,56.29,74.46,67.28
+United States,North America,172.11,109.52,52.8,69.27,71.05
+Uruguay,South America,125.98,37.46,46.19,66.28,51.04
+Vietnam,Asia,87.48,28.14,54.65,57.7,38.34
