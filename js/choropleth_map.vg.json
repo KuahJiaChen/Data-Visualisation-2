@@ -1,114 +1,135 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "title": "Average household expenditure ($ per capita) for each country throughout the period from 1960 to 2016",
-      "width": 700,
-      "height": 500,
-    "data": {
-      "url": "https://raw.githubusercontent.com/KuahJiaChen/Data-Visualisation-Homework/main/js/world_map.json",
-      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-    },
-    "projection": {"type": "equalEarth"},
-    "layer": [
-      {
-        "transform": [
-          {
-            "calculate": "'Data is not available in ' + datum.properties.NAME",
-            "as": "note"
-          }
-        ],
-        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
-        "encoding": {"tooltip": {"field": "note"}}
-      },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
-          "format": {"type": "topojson", "feature": "oceans"}
-        },
-        "mark": {"type": "geoshape", "fill": "#BDEDFF"}
-      },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/WorldMapWithGraticules.topojson",
-          "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
-        },
-        "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
-      },
-      {
-        "params": [
-        {"name": "hover", "select": {"type": "point", "on": "mouseover"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {"resize": true},
+  "data": {
+    "url": "https://raw.githubusercontent.com/KuahJiaChen/Data-Visualisation-Homework/main/js/world_map.json",
+    "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+  },
+  "vconcat": [
+    {
+      "title": "COVID-19 Confirmed Cases (10 Oct 2020)",
+      "width": 800,
+      "height": 600,
+      "projection": {"type": "equalEarth"},
+      "layer": [
+    {
+      "transform": [
+        {
+          "calculate": "'Data is not available in ' + datum.properties.NAME",
+          "as": "note"
         }
       ],
-        "transform": [
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+      "encoding": {"tooltip": {"field": "note"}}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+        "format": {"type": "topojson", "feature": "oceans"}
+      },
+      "mark": {"type": "geoshape", "fill": "#BDEDFF"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/WorldMapWithGraticules.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+      },
+      "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+    },
+    {
+      "params": [
+      {"name": "hover", "select": {"type": "point", "on": "mouseover"}
+      },{"name": "countrySelection", "select": {"type": "point", "encodings": ["description"]}}
+    ],
+      "transform": [
+        {
+          "lookup": "properties.NAME",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/KuahJiaChen/Data-Visualisation-Homework/main/data/householdexpenditure.csv"
+            },
+            "key": "Country",
+            "fields": ["Country","Household Expenditure Per Capita (in $)"]
+          }
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "#8B008B"},
+      "encoding": {
+        "description": {"field": "Country"},
+        "color": {
+          "condition":{
+            "param": "hover",
+            "field": "Household Expenditure Per Capita (in $)",
+            "type": "quantitative",
+            "scale": {"type": "linear",
+            "domain": [5000, 10000, 15000, 20000, 25000],
+            "range": ["#F4D166","#F6BC58", "#FB934B", "#EB6E49", "#D64C45", "#B71D3E"]},
+            "legend": {"title":"Expenditure Per Capita in $",
+          "direction": "horizontal",
+        "orient": "top-left",
+      "gradientLength":250,
+    "titleFontSize":12}
+          }
+            , "value" : "grey"
+          
+        },
+        "tooltip": [
+          {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+          {"field": "Household Expenditure Per Capita (in $)", "type": "quantitative"}
+        ],
+        "strokeWidth": {
+          "condition": [{"param": "hover", "empty": false, "value": 1}],
+          "value": 0.5
+        },
+        "opacity": {
+          "condition": {"param": "hover", "value": 1},
+          "value": 0.1
+        }
+      }
+    },{
+      "transform": [
           {
             "lookup": "properties.NAME",
             "from": {
               "data": {
-                "url": "https://raw.githubusercontent.com/KuahJiaChen/Data-Visualisation-Homework/main/data/householdexpenditure.csv"
+                "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/data/countryInfo.csv"
               },
-              "key": "Country",
-              "fields": ["Household Expenditure Per Capita (in $)"]
+              "key": "name",
+              "fields": ["latitude", "longitude"]
             }
           }
         ],
-        "mark": {"type": "geoshape", "stroke": "#8B008B"},
+        "mark": {"type": "text","font":"Arial","fontSize":10,"color":"#800000","fontStyle":"bold"},
         "encoding": {
-          "color": {
-            "condition":{
-              "param": "hover",
-              "field": "Household Expenditure Per Capita (in $)",
-              "type": "quantitative",
-              "scale": {"type": "linear",
-              "domain": [5000, 10000, 15000, 20000, 25000],
-              "range": ["#F4D166","#F6BC58", "#FB934B", "#EB6E49", "#D64C45", "#B71D3E"]},
-              "legend": {"title":"Expenditure Per Capita in $",
-            "direction": "horizontal",
-          "orient": "top-left",
-        "gradientLength":250,
-      "titleFontSize":12}
-            }
-              , "value" : "grey"
-            
-          },
-          "tooltip": [
-            {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-            {"field": "Household Expenditure Per Capita (in $)", "type": "quantitative"}
-          ],
-          "strokeWidth": {
-            "condition": [{"param": "hover", "empty": false, "value": 1}],
-            "value": 0.5
-          },
+          "longitude": {"field": "longitude", "type": "quantitative"},
+          "latitude": {"field": "latitude", "type": "quantitative"},
+          "text": {"field": "properties.NAME", "type": "nominal"},
           "opacity": {
-            "condition": {"param": "hover", "value": 1},
-            "value": 0.1
+            "condition": {
+              "test": "datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'Brazil' || datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'Malaysia' ||  datum['properties.NAME'] == 'Libya' ||  datum['properties.NAME'] == 'Canada'",
+              "value": 1
+            },
+            "value": 0
           }
         }
-      },{
-        "transform": [
-            {
-              "lookup": "properties.NAME",
-              "from": {
-                "data": {
-                  "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/data/countryInfo.csv"
-                },
-                "key": "name",
-                "fields": ["latitude", "longitude"]
-              }
-            }
-          ],
-          "mark": {"type": "text"},
-          "encoding": {
-            "longitude": {"field": "longitude", "type": "quantitative"},
-            "latitude": {"field": "latitude", "type": "quantitative"},
-            "text": {"field": "properties.NAME", "type": "nominal"},
-            "opacity": {
-              "condition": {
-                "test": "datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'Brazil' || datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'Malaysia' ||  datum['properties.NAME'] == 'Libya' ||  datum['properties.NAME'] == 'United States of America'",
-                "value": 1
-              },
-              "value": 0
-            }
-          }
-      }
-    ],
-    "config": {}
+    }
+  ]
+    },
+    {
+      "width": 700,
+      "data": {
+              "url": "https://raw.githubusercontent.com/KuahJiaChen/Data-Visualisation-2/main/dataset/fertility_rate.csv"
+            },
+      "transform": [
+        
+        {"filter": {"param": "countrySelection", "empty": false}}
+      ],
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "Year", "type": "temporal","timeUnit":"year"},
+    "y": {"field": "Fertility_rate", "type": "quantitative"}
   }
+    }
+  ],
+  "config": {}
+}
