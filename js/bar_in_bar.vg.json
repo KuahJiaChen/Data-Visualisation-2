@@ -18,7 +18,7 @@
     },
     {"name": "select", "select": "point"}
   ],
-    "mark": {"type":"bar","size":20,"color":"#6B8E23","stroke": "black",
+    "mark": {"type":"bar","size":20,"color":"#FFE4E1","stroke": "#800000",
     "cursor": "pointer"},
     "encoding": {
     "y": {"field": "country", "type": "nominal"},
@@ -49,8 +49,8 @@
     },
     {"name": "select2", "select": "point"}
   ],
-    "mark": {"type":"bar","size":8,"color":"#FFFACD",
-    "stroke": "black",
+    "mark": {"type":"bar","size":8,"color":"#800000",
+    "stroke": "#800000",
     "cursor": "pointer"},
     "encoding": {
     "y": {"field": "country", "type": "nominal"},
