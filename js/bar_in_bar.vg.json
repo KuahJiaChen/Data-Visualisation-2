@@ -2,11 +2,17 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Bar chart with text labels. Set domain to make the frame cover the labels.",
   "width": 600,
-  "height": 350,
+  "height": 450,
   "title":"Internet Users for the top 10 countries with highest population in 2020",
   "data": {
     "url": "https://raw.githubusercontent.com/KuahJiaChen/Data-Visualisation-2/main/dataset/top_10_country_africa_internet_users.csv"
-  },"transform": [{"calculate": "datum.internet_user/datum.population", "as": "percentage"}],
+  },"transform": [{"calculate": "datum.internet_user/datum.population", "as": "percentage"},{
+      "joinaggregate": [{
+        "op": "mean",
+        "field": "internet_user",
+        "as": "AverageInternetUser"
+      }]
+    }],
   "encoding": {
     "y": {"field": "country", "type": "nominal"},
     "x": {"field": "population", "type": "quantitative", "scale": {"domain": [0, 250000000]}}
@@ -91,5 +97,18 @@
     "encoding": {
       "text": {"field": "percentage", "type": "quantitative","format" :".0%"}
     }
-  }]
+  },
+    {
+      "mark": {"type": "rule", "color": "grey","size":3.5,"strokeDash":[8,7]},
+      "encoding": {
+        "x": {
+          "aggregate": "average",
+          "field": "AverageInternetUser",
+          "type": "quantitative",
+          "title": "Number of People"
+        },
+        "y": {"field": null}
+      }
+    }
+    ]
 }
