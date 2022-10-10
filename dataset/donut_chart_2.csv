@@ -1,4 +1,4 @@
-age_structure,number_of_people
-age_0_to_14_years,1098332643
-age_15_to_64_years,3038229000
-age_above_65_years,378942460
+age_structure,number_of_people,percentage
+age_0_to_14_years,1098332643,0.24323588639201818
+age_15_to_64_years,3038229000,0.6728438133809841
+age_above_65_years,378942460,0.08392030022699772
