@@ -1,4 +1,4 @@
-age_structure,number_of_people
-Age 0 to 14 Years,1125712865
-Age 15 to 64 Years,3141753252
-Age above 65 Years,377769174
+Age Structure,number_of_people,percentage
+Age 0 to 14 Years,1125712865,0.24233710339302594
+Age 15 to 64 Years,3141753252,0.6763388838638701
+Age above 65 Years,377769174,0.08132401274310391
