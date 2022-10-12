@@ -1,0 +1,201 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "values": [
+      {"label": "China", "amount": 1440297825,"percentage":0.187489,"continent":"Asia"},
+      {"label": "India", "amount": 1382345085,"percentage":0.179945,"continent":"Asia"},
+      {"label": "United States", "amount": 331341050,"percentage":0.043132,"continent":"North America"},
+      {"label": "Indonesia", "amount": 274021604,"percentage":0.035670,"continent":"Asia"},
+      {"label": "Pakistan", "amount": 221612785,"percentage":0.028848,"continent":"Asia"},
+      {"label": "Brazil", "amount": 212821986,"percentage":0.027704,"continent":"South America"},
+      {"label": "Nigeria", "amount": 206984347,"percentage":0.026944,"continent":"Africa"},
+      {"label": "Bangladesh", "amount": 164972348,"percentage":0.021475,"continent":"Asia"},
+      {"label": "Russia", "amount": 145945524,"percentage":0.018998,"continent":"Europe"},
+      {"label": "Mexico", "amount": 129166028,"percentage":0.016814,"continent":"North America"},
+      {"label": "Others", "amount": 3172533402,"percentage":0.412980,"continent":"All"},
+      {"label": "Total", "amount": 0,"percentage":1.0,"continent":"None"}
+    ]
+  },
+  "width": 900,
+  "height": 500,
+  "transform": [
+    {"window": [{"op": "sum", "field": "amount", "as": "sum"}]},
+    {"window": [{"op": "lead", "field": "label", "as": "lead"}]},
+    {
+      "calculate": "datum.lead === null ? datum.label : datum.lead",
+      "as": "lead"
+    },
+    {
+      "calculate": "datum.label === 'Total' ? 0 : datum.sum - datum.amount",
+      "as": "previous_sum"
+    },
+    {
+      "calculate": "datum.label === 'Total' ? datum.sum : datum.amount",
+      "as": "amount"
+    },
+    {
+      "calculate": "(datum.label !== 'Total' && datum.amount > 0 ? '+' : '') + datum.amount",
+      "as": "text_amount"
+    },
+    {"calculate": "(datum.sum + datum.previous_sum) / 2", "as": "center"},
+    {
+      "calculate": "datum.sum < datum.previous_sum ? datum.sum : ''",
+      "as": "sum_dec"
+    },
+    {
+      "calculate": "datum.sum > datum.previous_sum ? datum.sum : ''",
+      "as": "sum_inc"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "label",
+      "type": "ordinal",
+      "sort": null,
+      "axis": {"labelAngle": 0, "title": "Country"}
+    }
+  },
+  "layer": [
+    {
+      "params": [
+      {"name": "hover", "select": {"type": "point", "on": "mouseover"}}
+    ],
+      "mark": {"type": "bar", "size": 70},
+      "encoding": {
+        "y": {
+          "field": "previous_sum",
+          "type": "quantitative",
+          "title": "Population", 
+          "axis":{"grid": false}
+        },
+        "y2": {"field": "sum"},
+        "color": {
+        "field": "label",
+        "type": "nominal",
+        "scale": {
+          "domain": [
+            "Bangladesh",
+            "Brazil",
+            "China",
+            "Indonesia",
+            "India",
+            "Mexico",
+            "Nigeria",
+            "Pakistan",
+            "Russia",
+            "United States",
+            "Others",
+            "Total"
+          ],
+          "range": [
+            "#FF9DA7",
+            "#B07AA1",
+            "#E15759 ",
+            "#76B7B2",
+            "#BAB0A7",
+            "#EDC948",
+            "#B565A7",
+            "#9C755F",
+            "#F28E2B",
+            "#4E79A7",
+            "#F5DEB3",
+            "#2E6E8D"
+          ]
+        },"legend":null
+      },
+          "tooltip": [
+            {"field": "label", "type": "nominal", "title": "Country"},
+            {"field": "amount", "type": "quantitative", "title": "Population"},
+            {"field": "percentage", "type": "quantitative", "title": "Percentage","format" :".0%"},
+            {"field": "continent", "type": "nominal", "title": "Continent"}
+          ],
+      "strokeWidth": {
+        "condition": [{"param": "hover", "empty": false, "value": 1}],
+        "value": 0.3
+      },
+      "opacity": {"condition": {"param": "hover", "value": 1}, "value": 0.7}
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#404040",
+        "opacity": 1,
+        "strokeWidth": 2,
+        "xOffset": -35,
+        "x2Offset": 35
+      },
+      "encoding": {
+        "x2": {"field": "lead"},
+        "y": {"field": "sum", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {"type": "text", "dy": -4, "baseline": "bottom"},
+      "encoding": {
+        "y": {"field": "sum_inc", "type": "quantitative"},
+        "text": {"field": "sum_inc", "type": "nominal"}
+      }
+    },
+    {
+      "mark": {"type": "text", "dy": 4, "baseline": "top"},
+      "encoding": {
+        "y": {"field": "sum_dec", "type": "quantitative"},
+        "text": {"field": "sum_dec", "type": "nominal"}
+      }
+    },
+    {
+      "mark": {"type": "text", "fontWeight": "bold", "baseline": "middle"},
+      "encoding": {
+        "y": {"field": "center", "type": "quantitative"},
+        "text": {"field": "percentage", "type": "quantitative","format" :".0%"},
+        "color": {
+          "condition": [
+            {
+              "test": "datum.label === 'Total'",
+              "value": "white"
+            }
+          ],
+          "value": "white"
+        }
+      }
+    },{
+    "transform": [
+      {"filter": "datum.label == 'China'"},
+      {
+        "calculate": "'Among the top 10 countries with the highest; population in the world, half of them belong to Asia'",
+        "as": "text_annotation_raw"
+      },
+      {
+        "calculate": "split(datum.text_annotation_raw,';')",
+        "as": "text_annotation"
+      }
+    ],
+    "mark": {"type": "text", "fontWeight": "bold", "dx": 200, "dy": -150},
+    "encoding": {
+      "text": {"field": "text_annotation"},
+      "color": {"value": "#2E6E8D"},
+      "size": {"value": 15}
+    }
+  },{
+    "transform": [
+      {"filter": "datum.label == 'China'"},
+      {
+        "calculate": "'It can be seen that the population ; of China and India far exceeds that of other countries,; which contributes a total of 37% of the world population'",
+        "as": "text_annotation_raw"
+      },
+      {
+        "calculate": "split(datum.text_annotation_raw,';')",
+        "as": "text_annotation"
+      }
+    ],
+    "mark": {"type": "text", "fontWeight": "bold", "dx": 400, "dy": 120},
+    "encoding": {
+      "text": {"field": "text_annotation"},
+      "color": {"value": "#2E6E8D"},
+      "size": {"value": 15}
+    }
+  }
+  ],
+  "config": {"text": {"fontWeight": "bold", "color": "#404040"},"background":"#EDEFF0"}
+}
