@@ -1,0 +1,210 @@
+body * {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-weight: 900;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 55px;
+}
+
+h2 {
+  color: #2E6E8D;
+}
+
+h3 {
+  color: #2E6E8D;
+}
+
+p {
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.theme-bold {
+  color: #2E6E8D;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.china-bold {
+  color: #E15759;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.russia-bold {
+  color: #F28E2B;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.united-states-bold {
+  color: #4E79A7;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.india-bold {
+  color: #BAB0A7;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.indonesia-bold {
+  color: #76B7B2;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.asia-bold {
+  color: #008080;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.south-america-bold {
+  color: #FF8C00;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.bermuda-bold {
+  color: #FF9DA7;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.switzerland-bold {
+  color: #B07AA1;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.norway-bold {
+  color: #E15759;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+
+.map-country-bold {
+  color: #B71D3E;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.pink-bold {
+  color: #FFE4E1;
+  font-weight: 900;
+  font-size: 16px;
+  -webkit-text-fill-color: #FFE4E1;
+  -webkit-text-stroke-width: 0.001px;
+  -webkit-text-stroke-color: black;
+}
+
+.red-bold {
+  color: #800000;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+b {
+  font-size: 16px;
+}
+
+.waterfall_paragraph {
+  text-align: center;
+  font-size: 15px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+body {
+  background-color: lightgray;
+}
+
+.page {
+  width: 1000px;
+  background-color: #EDEFF0;
+  margin: auto;
+  padding: 50px;
+  padding-top: 35px;
+}
+
+.vis-container {
+  width: 100%;
+}
+
+.description h2,
+h1 {
+  margin-top: 0px;
+}
+
+.description-right {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.description-left {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.pure-g {
+  margin-bottom: 40px;
+}
+
+.small-font {
+  font-size: 15px;
+}
+
+.space {
+  height: 40px;
+}
+
+.titlePage {
+  background-color: #2E6E8D;
+  color: white;
+  text-align: center;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-size: 60px;
+  border-radius: 5px;
+  height: 75px;
+}
+
+.mainParagraph {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.mainParagraphDataset {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+.description-width {
+  width: 500px;
+}
+
+.visulisationTitle {
+  padding-top: 10px;
+  background-color: #2E6E8D;
+  color: white;
+  text-align: center;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-size: 30px;
+  height: 46px;
+  border-radius: 15px;
+}
+
+#container {
+  height: 500px;
+}
+
+.spaceBetweenParagraph {
+  line-height: 20px;
+}
