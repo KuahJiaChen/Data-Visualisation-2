@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FIT3179 Data Visualisation 2</title>
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-sankey.min.js"></script>
+
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fondamento&family=Ma+Shan+Zheng&family=Roboto&family=ZCOOL+KuaiLe&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <!-- Main title and paragraph -->
+        <div class="titlePage">
+            Global Lifestyle
+        </div>
+
+        <div class="space"> </div>
+
+        <div class="mainParagraph">
+            By 2022, there will 195 countries in the world, with a population of almost 8
+            billion. Every country has a particular way of life, as well as a different
+            economy, cost of living, and standard of living. Thus, it would be quite
+            exciting to analyse the economic, geographic, national, and regional statistics
+            as well as numerous indicators of the citizens' quality of life by developing
+            an appealing visualisation. By taking a look at the visuals made in this
+            dashboard, we can obtain an overview of the data for all countries.
+        </div>
+
+        <div class="space"></div>
+
+        <div class="mainParagraphDataset">The dataset used to conduct the analysis consists of the information for
+            each country for the period from 1960 to 2020.</div>
+
+        <!-- Bubble plot -->
+
+        <div class="space"> </div>
+        <div class="visulisationTitle"> Health Care Quality in each country in 2020 </div>
+        <div class="space"> </div>
+
+        <div class="pure-g">
+            <div class="pure-u-6-24">
+                <div class="description-left">
+                    <h3>Health Care Quality</h3>
+                    <p>The bubble plot depicts the correlation between the
+                        global <span class="theme-bold"> healthcare index </span>
+                        and the global <span class="theme-bold">healthcare
+                            expenditure index</span>. The <span class="theme-bold">
+                            Healthcare Index </span>and the
+                        <span class="theme-bold">Healthcare Expenditure Index </span>are
+                        strongly positively
+                        correlated. Consequently, a higher <span class="theme-bold">
+                            healthcare expenditure
+                            index</span> might result in a higher <span class="theme-bold">
+                            healthcare index</span>, which
+                        subsequently gives their population a higher quality of life.
+                    </p>
+                    <div class="spaceBetweenParagraph"></div>
+                    <p>The bubble plot reveals that among all countries,<b> South Korea</b>,
+                        which is located in <span class="asia-bold">Asia</span>, has the highest healthcare and
+                        healthcare expenditure indexes, while <b>Iraq</b>, which is located
+                        in <span class="south-america-bold">South America</span>, has the lowest indexes for both. </p>
+                    <div class="spaceBetweenParagraph"></div>
+                    <p>We can also observe that most of the populous nations appear to be
+                        from <span class="asia-bold">Asia</span> based on the size of the points and the filtering
+                        feature. </p>
+
+                </div>
+            </div>
+            <div class="pure-u-2-24"></div>
+            <div class="pure-u-3-5">
+                <div id="vis1" class="vis-container"></div>
+            </div>
+        </div>
+
+        <!-- Choropleth Map -->
+
+        <div class="visulisationTitle"> Household Expenditure & Fertility Rate </div>
+        <div class="space"> </div>
+
+        <div class="pure-g">
+            <div class="pure-u-3-5">
+                <div id="vis2" class="vis-container"></div>
+            </div>
+            <div class="pure-u-3-24"></div>
+            <div class="pure-u-6-24">
+                <div class="description-left">
+                    <h3>Household Expenditure</h3>
+                    <p>The <span class="theme-bold">household spending per capita in USD</span>
+                        for each country in 2020 is displayed on the choropleth map.
+                        <span class="theme-bold">Household expenditures</span> are
+                        the sums that local households spend on things like food,
+                        clothing, rent, electricity, transportation, medical costs,
+                        entertainment, and other goods and services.
+                    </p>
+                    <div class="spaceBetweenParagraph"></div>
+                    <p>On the other side, the <span class="map-country-bold">United States</span>
+                        has the greatest household expenditure
+                        <span class="map-country-bold">($37903)</span> among all
+                        nations, as can be seen from the map.
+                        <span class="map-country-bold">Switzerland ($28320)</span> and
+                        <span class="map-country-bold">Luxembourg ($28261)</span> came next.
+                    </p>
+                    <div class="spaceBetweenParagraph"></div>
+                    <p>Additionally, by choosing a nation from the choropleth map, the
+                        line chart for that nation's <span class="theme-bold">fertility rate</span> from 1960 to 2016
+                        will be displayed. </p>
+                    <h3>Fertility Rate</h3>
+                    <p>The line graph displays the <span class="theme-bold">fertility rate</span>
+                        for a specific country between <span class="map-country-bold">1960</span>
+                        and <span class="map-country-bold">2016</span>. The total number of live
+                        births to women in a given year, represented as a percentage of the total annual
+                        population of women, is known as the <span class="theme-bold">fertility rate</span>.
+                        The majority of the countries fertility rates declined consistently over time,
+                        which is surprising. I believe that recent medical developments
+                        have caused birth rates to decline in many countries.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bar in Bar Chart -->
+
+        <div class="visulisationTitle"> Internet Users for the top 10 countries in Africa in 2020 </div>
+        <div class="space"> </div>
+
+        <div class="pure-g">
+            <div class="pure-u-6-24">
+                <div class="description-left">
+                    <h3>Number of Internet User</h3>
+                    <p>In modern society, the <span class="theme-bold">internet</span> has gained popularity.
+                        On the <span class="theme-bold">internet</span>, we can find knowledge and information
+                        that will help our individual, societal, and economic
+                        development. Thus, the <span class="theme-bold">internet</span>'s assistance is necessary
+                        to meet our needs and achieve our goals every day.</p>
+                    <div class="spaceBetweenParagraph"></div>
+                    <p>However, it appears that many <b>African residents</b> do not regularly use the
+                        Internet. The bar in bar chart displays the proportion of <span
+                            class="theme-bold">internet</span> users
+                        among the populace in the top 10 countries by population in 2020. The <span
+                            class="red-bold">red</span>
+                        color bar displays the <span class="red-bold">population</span>, while the <span
+                            class="pink-bold">pink</span> color bar displays the
+                        <span class="pink-bold">number of internet users</span> for each country. <b>Ethiopia</b> and
+                        <b>Congo</b> (the
+                        Democratic Republic of the Congo) have the lowest percentage of <span
+                            class="theme-bold">internet</span>
+                        users among these nations, with 18% each. However, <b>Kenya</b>, which is located
+                        in Africa, has a comparatively high rate of <span class="theme-bold">Internet</span> users
+                        (87%).
+                    </p>
+                </div>
+            </div>
+            <div class="pure-u-1-24"></div>
+            <div class="pure-u-3-5">
+                <div id="vis3" class="vis-container"></div>
+            </div>
+        </div>
+
+        <!-- Bump Chart -->
+
+        <div class="visulisationTitle"> Life expectancy Rankings for several countries </div>
+        <div class="space"> </div>
+
+        <div class="pure-g">
+            <div class="pure-u-3-5">
+                <div id="vis4" class="vis-container"></div>
+            </div>
+            <div class="pure-u-3-24"></div>
+            <div class="pure-u-6-24">
+                <div class="description-left">
+                    <h3>Life Expectancy</h3>
+                    <p>The Bump Chart displays the top 10 countries with the highest
+                        population rankings for <span class="theme-bold">life expectancy</span> from 1960 to 2010.
+                        The term "<span class="theme-bold">life expectancy</span>" describes the typical time frame that
+                        a person may expect to live. </p>
+                    <div class="spaceBetweenParagraph"></div>
+                    <p>It is surprising to discover from the bump chart that the <span class="united-states-bold">United
+                            States</span>
+                        has the highest life expectancy overall. Additionally,
+                        as time goes on, its life expectancy continues to rise. This indicates
+                        that Americans do indeed have a high standard of living. We cannot,
+                        however, ignore the fact that <span class="china-bold">China</span>'s life expectancy is rising
+                        steadily. <span class="china-bold">China</span> had the biggest improvement among these
+                        countries,
+                        going from eighth to third from where it started.
+                    </p>
+                    <div class="spaceBetweenParagraph"></div>
+                    <p>On the other hand, we can also observe that <span class="russia-bold">Russia</span> is now ranked
+                        lower.
+                        In 1960, it was ranked second, but it finally fell to sixth.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Waterfall Chart -->
+
+        <div class="visulisationTitle"> Percentage of total population for each country in 2020 </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="waterfall_paragraph">
+                    <p>The waterfall chart illustrates the <span class="theme-bold">percentage of the world's
+                            population</span> for
+                        the top 10 countries in 2020. In 2020, there will be about <span class="theme-bold">7.6
+                            billion</span> people
+                        around the world. Using the graph, we can observe that <span class="china-bold">China</span> and
+                        <span class="india-bold">India</span> account
+                        for 37% of the world's population, vastly outnumbering all other countries
+                        combined (<span class="china-bold">1440297825</span> and <span
+                            class="india-bold">1382345085</span>, respectively).
+                    </p>
+                    <div class="spaceBetweenParagraph"></div>
+                    <p>The <span class="united-states-bold">United States</span> and
+                        <span class="indonesia-bold">Indonesia</span> come next, with respective
+                        rankings of <span class="united-states-bold">331341050</span> and
+                        <span class="indonesia-bold">274021604</span>.
+                        It's also noteworthy to note that the population of the top 3 to 10 countries
+                        is only roughly equal to half of <span class="china-bold">China</span> and
+                        <span class="india-bold">India</span> combined.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pure-u-1-1">
+                <div id="vis5" class="vis-container"></div>
+            </div>
+        </div>
+
+        <!-- Sankey Diagram -->
+
+        <div class="visulisationTitle"> Age Structure for several countries in 2020 </div>
+        <div class="space"> </div>
+
+        <div class="pure-g">
+            <div class="pure-u-8-24">
+                <div class="description-left">
+                    <h3>Age Structure</h3>
+                    <p>For the top 5 countries with the highest population in the world, the
+                        Sankey charts display the age distribution. <span class="theme-bold">Age structure</span> is
+                        divided
+                        into three groups: <span class="theme-bold">0 to 14 years</span>,
+                        <span class="theme-bold">15 to 64 years</span>, and
+                        <span class="theme-bold">65 years and older</span>.
+                        It's noteworthy to note that of the <span class="theme-bold">2484433000</span> people living in
+                        the five
+                        countries, the majority of them fall into the age range of 15 to 64. 0 to
+                        14 years old and 65 and older are followed by <span class="theme-bold">854051230</span>
+                        and <span class="theme-bold">315856390</span>,
+                        respectively.
+                    </p>
+                    <div class="spaceBetweenParagraph"></div>
+                    <p><span class="china-bold">China</span>, which has the largest population in the world, has <span
+                            class="china-bold">254932700</span>,
+                        <span class="china-bold">1032694000</span>, and <span class="china-bold">158432800</span>
+                        individuals who belong into the age groups
+                        of 0 to 14, 15 to 64, and 65 and older, respectively. <span class="india-bold">India</span>, the
+                        world's
+                        second-largest nation, has <span class="india-bold">384291900</span>, <span
+                            class="india-bold">915112400</span>,
+                        and <span class="india-bold">82940710</span> citizens
+                        who belong into the age groups of 0 to 14, 15 to 64, and 65 and older,
+                        respectively.
+                    </p>
+                </div>
+            </div>
+            <div class="pure-u-1-24"></div>
+            <div class="pure-u-3-5">
+                <div id="container"></div>
+            </div>
+        </div>
+
+        <!-- Donut Charts -->
+
+        <div class="visulisationTitle"> Age Structure for three Continents in 2020 </div>
+        <div class="space"> </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="waterfall_paragraph">
+                    The <span class="theme-bold">top three continents</span> with the highest population among the six
+                    continents in
+                    2020 are represented by donut charts that indicate the <span class="theme-bold">age
+                        distribution</span>. The donut
+                    charts show that the majority of the population on the three continents is between
+                    the ages of <span class="red-bold">15 and 64</span>. But out of all of them, <span
+                        class="theme-bold">Asia</span> has the greatest percentage—roughly
+                    <span class="red-bold">68%</span>—in this category. <span class="theme-bold">Europe</span> and <span
+                        class="theme-bold">Africa</span> are close behind, coming in at roughly <span
+                        class="red-bold">66%</span>
+                    and <span class="red-bold">56%</span> , respectively.
+                </div>
+            </div>
+            <div class="pure-u-1-1">
+                <div class="space"> </div>
+            </div>
+            <div class="pure-u-1-3">
+                <div id="vis7" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-3">
+                <div id="vis6" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-3">
+                <div id="vis8" class="vis-container"></div>
+            </div>
+        </div>
+
+        <!-- Lollipop Chart -->
+
+        <div class="visulisationTitle"> Cost of Living Index in 2020 </div>
+        <div class="space"> </div>
+
+        <div class="pure-g">
+            <div class="pure-u-3-5">
+                <div id="vis9" class="vis-container"></div>
+            </div>
+            <div class="pure-u-3-24"></div>
+            <div class="pure-u-6-24">
+                <div class="description-right">
+                    <h2>Cost of Living</h2>
+                    <p>The <span class="theme-bold">cost of living index</span> for the
+                        <span class="theme-bold">top 15 countries</span> around the world is
+                        displayed on the lollipop chart. The <span class="theme-bold">cost of living</span>
+                        is the sum of money
+                        required in a certain location and time frame to meet necessities
+                        including housing, food, taxes, and medical care.
+                    </p>
+                    <div class="spaceBetweenParagraph"></div>
+                    <p>We can select to visualize the number of countries that will appear on the
+                        chart by adjusting the slider underneath. The graphic shows that
+                        <span class="bermuda-bold">Bermuda</span>,
+                        <span class="switzerland-bold">Switzerland</span>, and
+                        <span class="norway-bold">Norway</span> are the three nations with the highest cost of living
+                        indices worldwide. Their relative cost of living indices is roughly
+                        <span class="bermuda-bold">148</span>,
+                        <span class="switzerland-bold">126</span>,
+                        and <span class="norway-bold">97</span>. It's also intriguing to see that all 15 of the top
+                        countries have the
+                        cost of living indices above <span class="theme-bold">75</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Name, ID and dataset -->
+
+        <div class="space"> </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1 small-font">
+                <b>This visualisation is created by Kuah Jia Chen 32286988. The dataset is obtained from <a
+                        href="https://www.kaggle.com/datasets/neomatrix369/world-bank-data-1960-to-2016-extended"
+                        target=" _blank">here</a>.</b>
+            </div>
+        </div>
+
+
+    </div> <!-- end page -->
+
+    <script type="text/javascript">
+        var specVis1 = "js/bubble_plot.vg.json";
+        var specVis2 = "js/choropleth_map.vg.json";
+        var specVis3 = "js/bar_in_bar.vg.json";
+        var specVis4 = "js/bump_chart.vg.json";
+        var specVis5 = "js/waterfall_chart.vg.json";
+        var specVis6 = "js/donut_chart_3_asia.vg.json";
+        var specVis7 = "js/donut_chart_4_africa.vg.json";
+        var specVis8 = "js/donut_chart_5_europe.vg.json";
+        var specVis9 = "js/lollipop_chart.vg.json";
+
+        vegaEmbed('#vis1', specVis1, { "actions": false });
+
+        vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#vis6', specVis6, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#vis7', specVis7, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#vis8', specVis8, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#vis9', specVis9, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+    </script>
+
+    <script>
+        anychart.onDocumentReady(function () {
+            //creating the data
+            var data = [
+                { from: "China", to: "Age 0 to 14 years", weight: 2.549327e+08 },
+                { from: "China", to: "Age 15 to 64 years", weight: 1.032694e+09 },
+                { from: "China", to: "Age above 65 years", weight: 1.584328e+08 },
+                { from: "India", to: "Age 0 to 14 years", weight: 3.842919e+08 },
+                { from: "India", to: "Age 15 to 64 years", weight: 9.151124e+08 },
+                { from: "India", to: "Age above 65 years", weight: 8.294071e+07 },
+                { from: "United States", to: "Age 0 to 14 years", weight: 6.262346e+07 },
+                { from: "United States", to: "Age 15 to 64 years", weight: 2.176911e+08 },
+                { from: "United States", to: "Age above 65 years", weight: 4.970116e+07 },
+                { from: "Indonesia", to: "Age 0 to 14 years", weight: 7.508192e+07 },
+                { from: "Indonesia", to: "Age 15 to 64 years", weight: 1.844165e+08 },
+                { from: "Indonesia", to: "Age above 65 years", weight: 1.370108e+07 },
+                { from: "Pakistan", to: "Age 0 to 14 years", weight: 7.712125e+07 },
+                { from: "Pakistan", to: "Age 15 to 64 years", weight: 1.345190e+08 },
+                { from: "Pakistan", to: "Age above 65 years", weight: 1.108064e+07 }
+            ];
+
+            var nodeColors = {
+                'China': '#E15759',
+                'India': '#BAB0A7',
+                'United States': '#4E79A7',
+                'Indonesia': '#76B7B2',
+                'Pakistan': '#9C755F',
+                'Age 0 to 14 years': '#F08080',
+                'Age 15 to 64 years': '#BDB76B',
+                'Age above 65 years': '#AFEEEE'
+            }
+            //calling the Sankey function
+            var sankey_chart = anychart.sankey(data);
+            //customizing the width of the nodes
+            sankey_chart.nodeWidth("35%");
+            //setting the chart title
+            // sankey_chart.title("Simple Sankey Diagram Example");
+            //customizing the vertical padding of the nodes
+            sankey_chart.nodePadding(5);
+            //setting the container id
+            sankey_chart.container("container");
+            sankey_chart.height('100%');
+            sankey_chart.node().fill(function () {
+                return nodeColors[this.name] || this.sourceColor;
+            });
+            // configure labels of nodes
+            sankey_chart.node().labels().useHtml(true);
+            sankey_chart.node().labels().format(function () {
+                return "<span style='font-weight:bold'>" + this.name +
+                    "</span>";
+            });
+            //initiating drawing the Sankey diagram
+            sankey_chart.draw();
+        });
+    </script>
+</body>
+
+</html>
