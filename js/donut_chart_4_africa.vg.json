@@ -1,0 +1,105 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple donut chart with embedded data.",
+  "title": {"text": "Africa", "color": "#2E6E8D", "fontSize": 20},
+  "height": 450,
+  "width": 325,
+  "data": {
+    "url": "https://raw.githubusercontent.com/KuahJiaChen/Data-Visualisation-2/main/dataset/africa_donut_chart_4.csv"
+  },
+  "layer": [
+    {
+      "params": [
+        {"name": "hover", "select": {"type": "point", "on": "mouseover"}}
+      ],
+      "mark": {"type": "arc", "innerRadius": 65, "stroke": "#2E6E8D"},
+      "encoding": {
+        "theta": {"field": "number_of_people", "type": "quantitative"},
+        "color": {
+          "field": "Age Structure",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Age 0 to 14 Years",
+              "Age 15 to 64 Years",
+              "Age above 65 Years"
+            ],
+            "range": ["#2F4F4F", "#DEB887", "#5F9EA0 "]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "Age Structure",
+            "type": "nominal",
+            "title": "Age Structure"
+          },
+          {
+            "field": "number_of_people",
+            "type": "quantitative",
+            "title": "Number of people"
+          },
+          {
+            "field": "percentage",
+            "type": "quantitative",
+            "title": "Percentage of Total World Population",
+            "format": ".0%"
+          }
+        ],
+        "strokeWidth": {
+          "condition": [{"param": "hover", "empty": false, "value": 2}],
+          "value": 0
+        }
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum['Age Structure'] == 'Age 0 to 14 Years'"},
+        {"calculate": "'56%'", "as": "text_annotation_raw"},
+        {
+          "calculate": "split(datum.text_annotation_raw,';')",
+          "as": "text_annotation"
+        }
+      ],
+      "mark": {"type": "text", "dx": -100, "dy": 50, "fontStyle": "bold"},
+      "encoding": {
+        "text": {"field": "text_annotation"},
+        "color": {"value": "white"},
+        "size": {"value": 25}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum['Age Structure'] == 'Age 0 to 14 Years'"},
+        {"calculate": "'4%'", "as": "text_annotation_raw"},
+        {
+          "calculate": "split(datum.text_annotation_raw,';')",
+          "as": "text_annotation"
+        }
+      ],
+      "mark": {"type": "text", "dx": -10, "dy": -110, "fontStyle": "bold"},
+      "encoding": {
+        "text": {"field": "text_annotation"},
+        "color": {"value": "white"},
+        "size": {"value": 25}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum['Age Structure'] == 'Age 0 to 14 Years'"},
+        {"calculate": "'40%'", "as": "text_annotation_raw"},
+        {
+          "calculate": "split(datum.text_annotation_raw,';')",
+          "as": "text_annotation"
+        }
+      ],
+      "mark": {"type": "text", "dx": 120, "dy": -15, "fontStyle": "bold"},
+      "encoding": {
+        "text": {"field": "text_annotation"},
+        "color": {"value": "white"},
+        "size": {"value": 25}
+      }
+    }
+  ],
+  "background": "#EDEFF0"
+}

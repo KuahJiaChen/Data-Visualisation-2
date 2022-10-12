@@ -1,0 +1,110 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple donut chart with embedded data.",
+  "title": {
+    "text": "Percentage of population as a whole",
+    "color": "#800000",
+    "fontSize": 20
+  },
+  "height": 400,
+  "width": 650,
+  "data": {
+    "url": "https://raw.githubusercontent.com/KuahJiaChen/Data-Visualisation-2/main/dataset/donut_chart_1.csv"
+  },
+  "layer": [
+    {
+      "params": [
+        {"name": "hover", "select": {"type": "point", "on": "mouseover"}}
+      ],
+      "mark": {"type": "arc", "innerRadius": 65, "stroke": "#800000"},
+      "encoding": {
+        "theta": {"field": "population", "type": "quantitative"},
+        "color": {
+          "field": "country",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Bangladesh",
+              "Brazil",
+              "China",
+              "Indonesia",
+              "India",
+              "Mexico",
+              "Nigeria",
+              "Pakistan",
+              "Russia",
+              "United States",
+              "Others"
+            ],
+            "range": [
+              "#FF9DA7",
+              "#B07AA1",
+              "#E15759 ",
+              "#76B7B2",
+              "#BAB0A7",
+              "#EDC948",
+              "#B565A7",
+              "#9C755F",
+              "#F28E2B",
+              "#4E79A7",
+              "#F5DEB3"
+            ]
+          }
+        },
+        "tooltip": [
+          {"field": "country", "type": "nominal", "title": "Country Name"},
+          {"field": "population", "type": "quantitative", "title": "Population"},
+          {
+            "field": "percentage",
+            "type": "quantitative",
+            "title": "Percentage of Total World Population",
+            "format": ".0%"
+          }
+        ],
+        "strokeWidth": {
+          "condition": [{"param": "hover", "empty": false, "value": 2}],
+          "value": 0
+        }
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.country == 'China'"},
+        {
+          "calculate": "'China population is ;equivalent to around 19%; of the total world ;population'",
+          "as": "text_annotation_raw"
+        },
+        {
+          "calculate": "split(datum.text_annotation_raw,';')",
+          "as": "text_annotation"
+        }
+      ],
+      "mark": {"type": "text", "fontWeight": "bold", "dx": 230, "dy": -150},
+      "encoding": {
+        "text": {"field": "text_annotation"},
+        "color": {"value": "#800000"},
+        "size": {"value": 12}
+      }
+    }
+    ,
+    {
+      "transform": [
+        {"filter": "datum.country == 'Others'"},
+        {
+          "calculate": "'The population of countries; other than the top 10 is ;equivalent to; around 41% of the ;total world population'",
+          "as": "text_annotation_raw"
+        },
+        {
+          "calculate": "split(datum.text_annotation_raw,';')",
+          "as": "text_annotation"
+        }
+      ],
+      "mark": {"type": "text", "fontWeight": "bold", "dx": -270, "dy": -100},
+      "encoding": {
+        "text": {"field": "text_annotation"},
+        "color": {"value": "#800000"},
+        "size": {"value": 12}
+      }
+    }
+  ]
+}

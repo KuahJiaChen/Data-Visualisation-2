@@ -1,0 +1,74 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A simple donut chart with embedded data.",
+    "title": {
+      "text": "Percentage of age structure as a whole",
+      "color": "#800000",
+      "fontSize": 20
+    },
+    "height": 400,
+    "width": 650,
+    "data": {
+      "url": "https://raw.githubusercontent.com/KuahJiaChen/Data-Visualisation-2/main/dataset/donut_chart_2.csv"
+    },
+    "layer": [
+      {
+        "params": [
+          {"name": "hover", "select": {"type": "point", "on": "mouseover"}}
+        ],
+        "mark": {"type": "arc", "innerRadius": 65, "stroke": "#800000"},
+        "encoding": {
+          "theta": {"field": "number_of_people", "type": "quantitative"},
+          "color": {
+        "field": "Age Structure",
+        "type": "nominal",
+        "scale": {
+          "domain": [
+            "Age from 0 to 14 years",
+            "Age from 15 to 64 years",
+            "Age from above 65 years"
+          ],
+          "range": [
+            "#2F4F4F",
+            "#DEB887",
+            "#5F9EA0 "
+          ]
+        }
+      },
+          "tooltip": [
+            {"field": "Age Structure", "type": "nominal", "title": "Age Structure"},
+            {"field": "number_of_people", "type": "quantitative", "title": "Number of people"},
+            {
+              "field": "percentage",
+              "type": "quantitative",
+              "title": "Percentage of Total World Population",
+              "format": ".0%"
+            }
+          ],
+          "strokeWidth": {
+            "condition": [{"param": "hover", "empty": false, "value": 2}],
+            "value": 0
+          }
+        }
+      },
+      {
+        "transform": [
+          {"filter": "datum['Age Structure'] == 'Age from 15 to 64 years'"},
+          {
+            "calculate": "'The majority of the world ; population belongs to the category; -- Age from 15 to 64 years, ;which is around 67%'",
+            "as": "text_annotation_raw"
+          },
+          {
+            "calculate": "split(datum.text_annotation_raw,';')",
+            "as": "text_annotation"
+          }
+        ],
+        "mark": {"type": "text", "fontWeight": "bold", "dx": -230, "dy": 150},
+        "encoding": {
+          "text": {"field": "text_annotation"},
+          "color": {"value": "#800000"},
+          "size": {"value": 12}
+        }
+      }
+    ]
+  }
