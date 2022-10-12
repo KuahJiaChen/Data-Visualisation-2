@@ -1,8 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 700,
-  "height": 500,
-  "title": "Health Care Quality in each country (2020)",
+  "width": 500,
+  "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/KuahJiaChen/Data-Visualisation-Week-10-Homework/main/data/bubble_plot.csv"
   },
@@ -50,7 +49,8 @@
     {"filter": "datum.population > Population_Above"},
     {
       "filter": "Continent_selection == null || datum.continent == Continent_selection"
-    }
+    },
+    {"filter": "datum.country != 'Taiwan'"}
   ],
   "encoding": {
     "x": {
@@ -93,22 +93,37 @@
               "Oceania"
             ],
             "range": [
-              "#e41a1c",
-              "#984ea3",
-              "#ff7f00",
-              "#a6cee3",
-              "#377eb8",
-              "#a65628"
+              "#C71585",
+              "#FF8C00",
+              "#BDB76B",
+              "#483D8B",
+              "#008080",
+              "#8B4513"
             ]
           }
         },
         "opacity": {"value": 0.6},
         "tooltip": [
-          {"field": "country", "type": "nominal", "title" : "Country Name"},
-          {"field": "continent", "type": "nominal", "title" : "Continent"},
-          {"field": "health_care_index", "type": "quantitative", "format": ",", "title" : "Health Care Index"},
-          {"field": "health_care_expenditure_index", "type": "quantitative", "format": ",", "title" : "Health Care Expenditure Index"},
-          {"field": "population", "type": "quantitative", "format": ",", "title" : "Population"}
+          {"field": "country", "type": "nominal", "title": "Country Name"},
+          {"field": "continent", "type": "nominal", "title": "Continent"},
+          {
+            "field": "health_care_index",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Health Care Index"
+          },
+          {
+            "field": "health_care_expenditure_index",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Health Care Expenditure Index"
+          },
+          {
+            "field": "population",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Population"
+          }
         ]
       }
     },
@@ -117,7 +132,8 @@
         "type": "text",
         "align": "right",
         "baseline": "middle",
-        "dx": -12,
+        "dx": -20,
+        "dy": 0,
         "fontSize": 11.5,
         "fontStyle": "italic"
       },
@@ -132,13 +148,47 @@
           "value": 0
         },
         "tooltip": [
-          {"field": "country", "type": "nominal","title": "Country Name"},
+          {"field": "country", "type": "nominal", "title": "Country Name"},
           {"field": "continent", "type": "nominal", "title": "Continent"},
-          {"field": "health_care_index", "type": "quantitative", "format": "," , "title": "Health Care Index"},
-          {"field": "health_care_expenditure_index", "type": "quantitative", "format": ",", "title": "Health Care Expenditure Index"},
-          {"field": "population", "type": "quantitative", "format": "," , "title" : "Population"}
+          {
+            "field": "health_care_index",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Health Care Index"
+          },
+          {
+            "field": "health_care_expenditure_index",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Health Care Expenditure Index"
+          },
+          {
+            "field": "population",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Population"
+          }
         ]
       }
+    },
+    {
+      "transform": [
+        {"filter": "datum.country == 'China'"},
+        {
+          "calculate": "'Countries with higher health ;care expenditure indexes seem ;to have higher health care indexes'",
+          "as": "text_annotation_raw"
+        },
+        {
+          "calculate": "split(datum.text_annotation_raw,';')",
+          "as": "text_annotation"
+        }
+      ],
+      "mark": {"type": "text", "fontWeight": "bold", "dx": 70, "dy": 90},
+      "encoding": {
+        "text": {"field": "text_annotation"},
+        "color": {"value": "#2E6E8D"},
+        "size": {"value": 12}
+      }
     }
-  ]
+  ],"background":"#EDEFF0"
 }
