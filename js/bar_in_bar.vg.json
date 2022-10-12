@@ -55,7 +55,7 @@
       "mark": {
         "type": "bar",
         "size": 20,
-        "color": "#FFE4E1",
+        "color": "#F08080",
         "stroke": "#800000",
         "cursor": "pointer"
       },
