@@ -96,12 +96,9 @@ p {
 }
 
 .pink-bold {
-  color: #FFE4E1;
+  color: #F08080;
   font-weight: 900;
   font-size: 16px;
-  -webkit-text-fill-color: #FFE4E1;
-  -webkit-text-stroke-width: 0.001px;
-  -webkit-text-stroke-color: black;
 }
 
 .red-bold {
