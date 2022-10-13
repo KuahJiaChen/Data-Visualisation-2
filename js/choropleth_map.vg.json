@@ -58,7 +58,7 @@
                 "key": "Country",
                 "fields": ["Country", "Household Expenditure Per Capita (in $)"]
               }
-            }
+            },{"filter": "datum.Country != 'Libya'"}
           ],
           "mark": {"type": "geoshape", "stroke": "#8B008B"},
           "encoding": {
@@ -137,7 +137,7 @@
             "text": {"field": "properties.NAME", "type": "nominal"},
             "opacity": {
               "condition": {
-                "test": "datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'Brazil' || datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'Malaysia' ||  datum['properties.NAME'] == 'Libya' ||  datum['properties.NAME'] == 'Canada'",
+                "test": "datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'Brazil' || datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'Malaysia' ||  datum['properties.NAME'] == 'Algeria' ||  datum['properties.NAME'] == 'Canada'",
                 "value": 1
               },
               "value": 0
