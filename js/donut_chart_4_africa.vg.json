@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A simple donut chart with embedded data.",
   "title": {"text": "Africa", "color": "#2E6E8D", "fontSize": 20},
-  "height": 450,
+  "height": 400,
   "width": 325,
   "data": {
     "url": "https://raw.githubusercontent.com/KuahJiaChen/Data-Visualisation-2/main/dataset/africa_donut_chart_4.csv"

@@ -6,7 +6,7 @@
     "color": "#2E6E8D",
     "fontSize": 20
   },
-  "height": 450,
+  "height": 400,
   "width": 325,
   "data": {
     "url": "https://raw.githubusercontent.com/KuahJiaChen/Data-Visualisation-2/main/dataset/europe_donut_chart_5.csv"
