@@ -169,6 +169,7 @@ h1 {
   font-size: 60px;
   border-radius: 5px;
   height: 75px;
+  display: inline-block;
 }
 
 .mainParagraph {
@@ -204,4 +205,11 @@ h1 {
 
 .spaceBetweenParagraph {
   line-height: 20px;
+}
+
+.global_lifestyle_image{
+  display: inline-block;
+  position: absolute;
+  right:350px; 
+  top:45px;
 }
