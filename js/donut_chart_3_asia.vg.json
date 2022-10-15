@@ -1,11 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A simple donut chart with embedded data.",
-  "title": {
-    "text": "Asia",
-    "color": "#2E6E8D",
-    "fontSize": 20
-  },
+  "title": {"text": "Asia", "color": "#2E6E8D", "fontSize": 20},
   "height": 400,
   "width": 325,
   "data": {
@@ -14,24 +10,11 @@
   "layer": [
     {
       "params": [
-        {
-          "name": "hover",
-          "select": {
-            "type": "point",
-            "on": "mouseover"
-          }
-        }
+        {"name": "hover", "select": {"type": "point", "on": "mouseover"}}
       ],
-      "mark": {
-        "type": "arc",
-        "innerRadius": 65,
-        "stroke": "#2E6E8D"
-      },
+      "mark": {"type": "arc", "innerRadius": 65, "stroke": "#2E6E8D"},
       "encoding": {
-        "theta": {
-          "field": "number_of_people",
-          "type": "quantitative"
-        },
+        "theta": {"field": "number_of_people", "type": "quantitative"},
         "color": {
           "field": "Age Structure",
           "type": "nominal",
@@ -41,11 +24,7 @@
               "Age 15 to 64 Years",
               "Age above 65 Years"
             ],
-            "range": [
-              "#2F4F4F",
-              "#DEB887",
-              "#5F9EA0 "
-            ]
+            "range": ["#2F4F4F", "#DEB887", "#5F9EA0 "]
           },
           "legend": {
             "title": "Age Structure",
@@ -74,88 +53,64 @@
           }
         ],
         "strokeWidth": {
-          "condition": [
-            {
-              "param": "hover",
-              "empty": false,
-              "value": 2
-            }
-          ],
+          "condition": [{"param": "hover", "empty": false, "value": 2}],
           "value": 0
         }
       }
     },
     {
       "transform": [
-        {
-          "filter": "datum['Age Structure'] == 'Age 0 to 14 Years'"
-        },
-        {
-          "calculate": "'68%'",
-          "as": "text_annotation_raw"
-        },
+        {"filter": "datum['Age Structure'] == 'Age 0 to 14 Years'"},
+        {"calculate": "'68%'", "as": "text_annotation_raw"},
         {
           "calculate": "split(datum.text_annotation_raw,';')",
           "as": "text_annotation"
         }
       ],
-      "mark": {
-        "type": "text",
-        "dx": -65,
-        "dy": 80,
-        "fontStyle": "bold"
-      },
+      "mark": {"type": "text", "dx": -65, "dy": 80, "fontStyle": "bold"},
       "encoding": {
-        "text": {
-          "field": "text_annotation"
-        },
-        "color": {
-          "value": "white"
-        },
-        "size": {
-          "value": 25
-        }
+        "text": {"field": "text_annotation"},
+        "color": {"value": "white"},
+        "size": {"value": 25}
       }
     },
     {
       "transform": [
-        {
-          "filter": "datum['Age Structure'] == 'Age 0 to 14 Years'"
-        },
-        {
-          "calculate": "'8%'",
-          "as": "text_annotation_raw"
-        },
+        {"filter": "datum['Age Structure'] == 'Age 0 to 14 Years'"},
+        {"calculate": "'8%'", "as": "text_annotation_raw"},
         {
           "calculate": "split(datum.text_annotation_raw,';')",
           "as": "text_annotation"
         }
       ],
-      "mark": {
-        "type": "text",
-        "dx": -25,
-        "dy": -110,
-        "fontStyle": "bold"
-      },
+      "mark": {"type": "text", "dx": -25, "dy": -110, "fontStyle": "bold"},
       "encoding": {
-        "text": {
-          "field": "text_annotation"
-        },
-        "color": {
-          "value": "white"
-        },
-        "size": {
-          "value": 25
-        }
+        "text": {"field": "text_annotation"},
+        "color": {"value": "white"},
+        "size": {"value": 25}
       }
     },
     {
       "transform": [
+        {"filter": "datum['Age Structure'] == 'Age 0 to 14 Years'"},
+        {"calculate": "'24%'", "as": "text_annotation_raw"},
         {
-          "filter": "datum['Age Structure'] == 'Age 0 to 14 Years'"
-        },
+          "calculate": "split(datum.text_annotation_raw,';')",
+          "as": "text_annotation"
+        }
+      ],
+      "mark": {"type": "text", "dx": 80, "dy": -75, "fontStyle": "bold"},
+      "encoding": {
+        "text": {"field": "text_annotation"},
+        "color": {"value": "white"},
+        "size": {"value": 25}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum['Age Structure'] == 'Age 0 to 14 Years'"},
         {
-          "calculate": "'24%'",
+          "calculate": "'Total Population; 4,645,235,291'",
           "as": "text_annotation_raw"
         },
         {
@@ -163,22 +118,11 @@
           "as": "text_annotation"
         }
       ],
-      "mark": {
-        "type": "text",
-        "dx": 80,
-        "dy": -75,
-        "fontStyle": "bold"
-      },
+      "mark": {"type": "text", "dx": 0, "dy": -5, "fontStyle": "bold"},
       "encoding": {
-        "text": {
-          "field": "text_annotation"
-        },
-        "color": {
-          "value": "white"
-        },
-        "size": {
-          "value": 25
-        }
+        "text": {"field": "text_annotation"},
+        "color": {"value": "#800000"},
+        "size": {"value": 15}
       }
     }
   ],

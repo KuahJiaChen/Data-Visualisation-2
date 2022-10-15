@@ -99,6 +99,25 @@
         "color": {"value": "white"},
         "size": {"value": 25}
       }
+    },
+    {
+      "transform": [
+        {"filter": "datum['Age Structure'] == 'Age 0 to 14 Years'"},
+        {
+          "calculate": "'Total Population; 1,161,349,409'",
+          "as": "text_annotation_raw"
+        },
+        {
+          "calculate": "split(datum.text_annotation_raw,';')",
+          "as": "text_annotation"
+        }
+      ],
+      "mark": {"type": "text", "dx": 0, "dy": -5, "fontStyle": "bold"},
+      "encoding": {
+        "text": {"field": "text_annotation"},
+        "color": {"value": "#800000"},
+        "size": {"value": 15}
+      }
     }
   ],
   "background": "#EDEFF0"
