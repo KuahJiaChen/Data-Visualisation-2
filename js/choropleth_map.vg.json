@@ -58,7 +58,8 @@
                 "key": "Country",
                 "fields": ["Country", "Household Expenditure Per Capita (in $)"]
               }
-            },{"filter": "datum.Country != 'Libya'"}
+            },
+            {"filter": "datum.Country != 'Libya'"}
           ],
           "mark": {"type": "geoshape", "stroke": "#8B008B"},
           "encoding": {
@@ -161,26 +162,89 @@
         "url": "https://raw.githubusercontent.com/KuahJiaChen/Data-Visualisation-2/main/dataset/fertility_rate.csv"
       },
       "transform": [{"filter": {"param": "countrySelection", "empty": false}}],
-      "mark": {"type":"line","color":"#2E6E8D","size":5},
-      "encoding": {
-        "x": {
-          "field": "Year",
-          "type": "temporal",
-          "timeUnit": "year",
-          "title": "Year"
+      "layer": [
+        {
+          "mark": {"type": "line", "color": "#2E6E8D", "size": 3},
+          "encoding": {
+            "x": {
+              "field": "Year",
+              "type": "temporal",
+              "timeUnit": "year",
+              "title": "Year"
+            },
+            "y": {
+              "field": "Fertility_rate",
+              "type": "quantitative",
+              "title": "Fertility Rate"
+            },
+            "tooltip": [
+              {"field": "Country", "type": "nominal", "title": "Country Name"},
+              {
+                "field": "Year",
+                "type": "temporal",
+                "timeUnit": "year",
+                "title": "Year"
+              },
+              {
+                "field": "Fertility_rate",
+                "type": "quantitative",
+                "title": "Fertility Rate (%)",
+                "format": ".2f"
+              }
+            ]
+          }
         },
-        "y": {
-          "field": "Fertility_rate",
-          "type": "quantitative",
-          "title": "Fertility Rate"
-        },"tooltip": [
-          {"field": "Country", "type": "nominal","title": "Country Name"},
-          {"field": "Year", "type": "temporal",
-          "timeUnit": "year", "title": "Year"},
-          {"field": "Fertility_rate", "type": "quantitative", "title": "Fertility Rate (%)","format": ".2f"}
-        ]
-      }
+        {
+          "mark": {"type": "point", "color": "#2E6E8D", "size": 50},
+          "encoding": {
+            "x": {
+              "field": "Year",
+              "type": "temporal",
+              "timeUnit": "year",
+              "title": "Year"
+            },
+            "y": {
+              "field": "Fertility_rate",
+              "type": "quantitative",
+              "title": "Fertility Rate"
+            },
+            "tooltip": [
+              {"field": "Country", "type": "nominal", "title": "Country Name"},
+              {
+                "field": "Year",
+                "type": "temporal",
+                "timeUnit": "year",
+                "title": "Year"
+              },
+              {
+                "field": "Fertility_rate",
+                "type": "quantitative",
+                "title": "Fertility Rate (%)",
+                "format": ".2f"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dx": 200,
+            "dy": -40,
+            "size": 30,
+            "color": "#2E6E8D"
+          },
+          "encoding": {
+            "text": {
+              "condition": {
+                "test": "!isDefined(countrySelection.Country)",
+                "value": "NONE"
+              },
+              "value": {"expr": "countrySelection.Country"}
+            }
+          }
+        }
+      ]
     }
   ],
-  "config": {"background":"#EDEFF0"}
+  "config": {"background": "#EDEFF0"}
 }
