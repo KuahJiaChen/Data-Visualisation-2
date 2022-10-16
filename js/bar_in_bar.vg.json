@@ -245,6 +245,60 @@
           "value": 12
         }
       }
+    },{
+      "transform": [
+        {
+          "filter": "datum.country == 'Morocco'"
+        },
+        {
+          "calculate": "' ■ Number of Internet User'",
+          "as": "text_annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": "bold",
+        "dx": 400,
+        "dy": -200
+      },
+      "encoding": {
+        "text": {
+          "field": "text_annotation"
+        },
+        "color": {
+          "value": "#F08080"
+        },
+        "size": {
+          "value": 15
+        }
+      }
+    },{
+      "transform": [
+        {
+          "filter": "datum.country == 'Morocco'"
+        },
+        {
+          "calculate": "' ■ Population'",
+          "as": "text_annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": "bold",
+        "dx": 353,
+        "dy": -180
+      },
+      "encoding": {
+        "text": {
+          "field": "text_annotation"
+        },
+        "color": {
+          "value": "#800000"
+        },
+        "size": {
+          "value": 15
+        }
+      }
     }
   ],
   "background": "#EDEFF0"
