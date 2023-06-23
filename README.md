@@ -1,6 +1,6 @@
 # Data Visualization 2
 
-This repository contains visualizations created using Vega-Lite, a declarative language for data visualization. The visualizations are hosted on a web page that can be accessed at [https://kuahjiachen.github.io/Data-Visualization-2/](https://kuahjiachen.github.io/Data-Visualization-2/).
+This repository contains visualizations created using Vega-Lite, a declarative language for data visualization. The visualizations are hosted on a web page that can be accessed at [https://kuahjiachen.github.io/Data-Visualisation-2/](https://kuahjiachen.github.io/Data-Visualisation-2/).
 
 ## Introduction
 
@@ -36,6 +36,6 @@ The repository is organized as follows:
 
 ## How to Use
 
-To view the visualizations, simply visit the web page at [https://kuahjiachen.github.io/Data-Visualization-2/](https://kuahjiachen.github.io/Data-Visualization-2/). Each visualization is accompanied by a brief description and provides insights into the lifestyle data of different countries.
+To view the visualizations, simply visit the web page at [https://kuahjiachen.github.io/Data-Visualisation-2/](https://kuahjiachen.github.io/Data-Visualisation-2/). Each visualization is accompanied by a brief description and provides insights into the lifestyle data of different countries.
 
 If you wish to explore the code used to create the visualizations or access the dataset, navigate to the respective directories mentioned above.
